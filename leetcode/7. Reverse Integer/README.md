@@ -57,7 +57,7 @@ Output: 0
 
 ## 플로우차트 (FlowChart)
 
-![GitHub Logo](./images/flowchart.png)
+![flowchart](./images/revint_flowchart.png)
 
 <br/>
 
