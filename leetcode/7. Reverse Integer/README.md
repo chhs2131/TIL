@@ -153,10 +153,11 @@ Output: 0
 
 ## 실행 예시
 
-=> 이미지
+
+![run_example](./images/run.png)
 
 
 
 
 
-=> 이미지
+![result](./images/result.png)
