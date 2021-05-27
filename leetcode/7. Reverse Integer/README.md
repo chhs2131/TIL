@@ -11,7 +11,7 @@ int형(32비트) 정수가 입력으로 주어졌을 때, 이 입력을 반대�
 > Given a signed 32-bit integer x, return x with its digits reversed. If reversing x causes the value to go outside the signed 32-bit integer range [-231, 231 - 1], then return 0.
 >
 > Assume the environment does not allow you to store 64-bit integers (signed or unsigned).
-
+<br/>
 
 
 ## 입출력 예제
