@@ -88,6 +88,7 @@ i = 0
 while i < POPULATION_SIZE:
     population.append(Chromosome())
     i += 1
+print(population)
 
 count = 0
 population.sort(key=lambda x: x.cal_fitness(), reverse=True)
