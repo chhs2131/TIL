@@ -8,6 +8,8 @@ class Chromosome:  # 염색체
     size = 0
     genes = []
     fitness = 0
+    strike = 0
+    ball = 0
 
     def __init__(self, n, g=[]):
         self.size = n
@@ -24,22 +26,34 @@ class Chromosome:  # 염색체
 
     def cal_fitness(self, target):  # 적합도 확인
         value = 0
+        s = 0
+        b = 0
         for i in range(self.size):
             if self.genes[i] == target[i]:
                 value += self.size / 2 + 1
+                s += 1
             elif self.genes[i] in target:
                 value += 1
+                b += 1
+        self.strike = s
+        self.ball = b
         self.fitness = value
         return self.fitness
 
     def __str__(self):
         return self.genes.__str__()
 
+    def get_strike(self):
+        return self.strike
+
+    def get_ball(self):
+        return self.ball
+
 
 def print_p(pop, target):
     i = 0
     for x in pop:
-        print("#", i, "=", x, "적합도=", x.cal_fitness(target))
+        print("#", i, "=", x, "적합도=", x.cal_fitness(target), "(SB:", x.get_strike(),"/", x.get_ball(), ")")
         i += 1
     print("")
 
