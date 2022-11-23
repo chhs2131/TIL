@@ -65,8 +65,8 @@ class Animation:
                     self.create_end_point(x, y)
                 # elif map[y][x] == START_POINT:
                 #     self.create_character(x, y)
-        #self.tk.mainloop()
-        #self.tk.update_idletasks()
+            # self.tk.mainloop()
+            # self.tk.update_idletasks()
             self.tk.update()
         print(map)
 
@@ -112,9 +112,10 @@ if __name__ == '__main__':
 
     print("abcde")
     a = Animation(maze)
-    #a.drawMaze()
+    # a.drawMaze()
 
     print("abcde")
-    path = [[2, 1], [2, 2], [2, 3], [3, 3], [4, 3], [5, 3], [5, 4], [6, 4], [7, 4], [8, 4], [8, 5], [9, 5], [10, 5], [10, 6], [10, 7]]
+    path = [[2, 1], [2, 2], [2, 3], [3, 3], [4, 3], [5, 3], [5, 4], [6, 4], [7, 4], [8, 4], [8, 5], [9, 5], [10, 5],
+            [10, 6], [10, 7]]
     a.movingRoute(path)
     print("abcde")

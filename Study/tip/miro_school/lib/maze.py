@@ -34,39 +34,28 @@ class Maze:
                 x = x + 1
             else:
                 y = y + 1
-
             self.map[y][x] = ROAD
 
             # 길의 종료 및 목적지 표시
-            if x == 10 or y == 10:  # x 또는 y 의 끝부분까지 이동하여 그곳에 도착지를 만듦
+            if x == WIDTH - 2 or y == HEIGHT - 2:  # x 또는 y 의 끝부분까지 이동하여 그곳에 도착지를 만듦
                 self.map[y][x] = END_POINT
                 break
 
         # 벽 갯수를 확인하 목표에 맞게 수정한다.
         cnt = 0
         print("목표 벽 갯수 : ", self.wall_cnt)
-        # self.printMap()
 
-        for row in range(1, 11):
-            for col in range(1, 11):
+        # 현재 벽 갯수 파악 (길 초기화시에 카운트하여 아래 작업 대체 가능)
+        for row in range(1, HEIGHT - 1):
+            for col in range(1, WIDTH - 1):
                 if self.map[row][col] == WALL:
                     cnt = cnt + 1
         print("현재 벽 갯수 : ", cnt)
 
-        '''
-        while self.wall_cnt > cnt:
-            x = random.randrange(1, 11)
-            y = random.randrange(1, 11)
-
-            if self.map[y][x] == ROAD:
-                self.map[y][x] = WALL
-                cnt = cnt + 1
-        print("현재 벽 갯수 : ", cnt)
-        '''
-
+        # 벽을 랜덤확률로 길로 변환
         while self.wall_cnt < cnt:
-            x = random.randrange(1, 11)
-            y = random.randrange(1, 11)
+            x = random.randrange(1, WIDTH - 1)
+            y = random.randrange(1, HEIGHT - 1)
 
             if self.map[y][x] == WALL:
                 self.map[y][x] = ROAD

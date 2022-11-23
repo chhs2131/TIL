@@ -7,11 +7,12 @@ ROAD = " "
 VISITED = "-"
 
 dx = [0, 1, 0, -1]
-dy = [-1, 0, 1, 0]
+dy = [1, 0, -1, 0]
+
 
 class PathFinding:
-    foots = [[1,1]]
-    allFoots = [[1,1]]
+    foots = [[1, 1]]
+    allFoots = [[1, 1]]
     reverse_foots = []
 
     def __init__(self, maze, draw_map):
@@ -66,7 +67,7 @@ class PathFinding:
     def getReverseFoots(self):
         self.reverse_foots = self.foots.copy()
         self.reverse_foots.reverse()
-        self.reverse_foots.append([1,1])
+        self.reverse_foots.append([1, 1])
         return self.reverse_foots
 
 
