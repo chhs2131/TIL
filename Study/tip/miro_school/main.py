@@ -1,7 +1,7 @@
 import lib.maze as makemaze
 import lib.pathfinding as pathfind
 import lib.animation as animation
-
+import time
 
 # 미로 생성
 m = makemaze.Maze()
@@ -17,5 +17,9 @@ print("출발", path)
 print("도착", reverse_path)
 
 # GUI 생성
-gui = animation.Animation(maze, "./lib/NINJA.png")
+gui = animation.Animation(maze)
 gui.drawMaze()
+gui.movingRoute(path)
+
+gui.movingRoute(reverse_path)
+time.sleep(10)

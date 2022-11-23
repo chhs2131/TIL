@@ -9,9 +9,9 @@ VISITED = "-"
 dx = [0, 1, 0, -1]
 dy = [-1, 0, 1, 0]
 
-
 class PathFinding:
-    foots = []
+    foots = [[1,1]]
+    allFoots = [[1,1]]
     reverse_foots = []
 
     def __init__(self, maze, draw_map):
@@ -33,7 +33,6 @@ class PathFinding:
                 print()
 
     def goTurtle(self, maze, sx, sy, foots):
-        self.drawMaze(maze)
         foot = maze[sy][sx]  # 현재 미로 위치
         for di in range(0, 4):  # 4방향 확인
             x = sx + dx[di]
@@ -45,9 +44,9 @@ class PathFinding:
             if (maze[y][x] == ROAD):  # 가지 않은 곳일 경우 : 마킹 후 다른 길을 다시 탐색
                 # maze[y][x] = foot + 1
                 maze[y][x] = VISITED
-                if (self.goTurtle(maze, x, y, foots)):
+                self.allFoots.append([x, y])
+                if self.goTurtle(maze, x, y, foots):
                     foots.append([x, y])
-                    # reverse.foots(maze[x][y])
                     return True
         return False
 
@@ -61,11 +60,13 @@ class PathFinding:
         return self.getFoots()
 
     def getFoots(self):
-        return self.foots
+        return self.allFoots
+        # return self.foots
 
     def getReverseFoots(self):
         self.reverse_foots = self.foots.copy()
         self.reverse_foots.reverse()
+        self.reverse_foots.append([1,1])
         return self.reverse_foots
 
 
@@ -75,9 +76,9 @@ if __name__ == '__main__':
             ['O', ' ', ' ', 'O', 'O', ' ', ' ', 'O', ' ', ' ', 'O', 'O'],
             ['O', ' ', ' ', ' ', ' ', ' ', 'O', ' ', 'O', 'O', ' ', 'O'],
             ['O', 'O', ' ', 'O', ' ', ' ', ' ', ' ', ' ', 'O', ' ', 'O'],
-            ['O', 'O', 'O', 'O', ' ', ' ', ' ', ' ', ' ', ' ', ' ', 'O'],
+            ['O', 'O', 'O', 'O', ' ', ' ', ' ', ' ', ' ', 'E', ' ', 'O'],
             ['O', ' ', ' ', ' ', 'O', ' ', ' ', 'O', ' ', ' ', ' ', 'O'],
-            ['O', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', 'E', 'O'],
+            ['O', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', 'O'],
             ['O', 'O', ' ', ' ', ' ', 'O', 'O', 'O', 'O', 'O', ' ', 'O'],
             ['O', ' ', ' ', ' ', 'O', ' ', ' ', ' ', ' ', ' ', 'O', 'O'],
             ['O', ' ', 'O', 'O', 'O', ' ', ' ', ' ', ' ', ' ', ' ', 'O'],
