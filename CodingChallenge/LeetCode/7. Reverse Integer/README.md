@@ -58,7 +58,7 @@ Output: 0
 
 ## 플로우차트 (FlowChart)
 
-![flowchart](./images/revint_flowchart.png)
+![flowchart](images/revint_flowchart.png)
 
 <br/>
 
@@ -155,13 +155,13 @@ Output: 0
 ## 실행 예시
 
 
-![run_example](./images/run.png)
+![run_example](images/run.png)
 
 
 
 
 
-![result](./images/result.png)
+![result](images/result.png)
 
 <br/>
 
