@@ -47,4 +47,13 @@ public class BaseballNumbers {
     public int ballCount() {
         return 0;
     }
+
+    @Override
+    public String toString() {
+        String result = "";
+        for (int n : numbers) {
+            result += n;
+        }
+        return result;
+    }
 }
