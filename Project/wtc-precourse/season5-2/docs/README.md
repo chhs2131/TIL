@@ -5,10 +5,10 @@
 
 ## 전체 기능 - BaseballGameController
 - [ ] 게임 로직
-  - [ ] 게임시작
-  - [ ] 사용자에게 숫자를 입력받아 결과를 전달받기
-  - [ ] 전달 받은 결과 출력하기
-  - [ ] 정답을 맞출 경우 계속할지 확인하기
+  - [ ] 게임시작 - gameStart
+  - [ ] 사용자에게 숫자를 입력받아 결과를 전달받기 - chooseNumbers
+  - [ ] 전달 받은 결과 출력하기 - checkResult
+  - [ ] 정답을 맞출 경우 계속할지 확인하기 - chooseContinue
 
 ## 도메인 객체
 ### 야구게임숫자 - BaseballNumbers

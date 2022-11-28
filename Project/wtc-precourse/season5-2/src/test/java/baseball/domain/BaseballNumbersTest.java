@@ -52,6 +52,12 @@ class BaseballNumbersTest {
 
     @Test
     void compare() {
+        List<Integer> l1 = List.of(1, 2, 3);
+        List<Integer> l2 = List.of(1, 3, 4);
+        BaseballNumbers numbers1 = new BaseballNumbers(l1);
+        BaseballNumbers numbers2 = new BaseballNumbers(l2);
+
+        System.out.println(numbers1.compare(numbers2));
     }
 
     @Test

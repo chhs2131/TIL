@@ -32,4 +32,13 @@ public class GameResult {
     public GameProgress getProgress() {
         return progress;
     }
+
+    @Override
+    public String toString() {
+        String result = "";
+        result += strike;
+        result += ball;
+        result += progress.toString();
+        return result;
+    }
 }

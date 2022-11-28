@@ -14,15 +14,16 @@ public class BaseballGame {
 
     public void makeRandomNumbers() {
         List<Integer> computer = new ArrayList<>();
-        while (computer.size() < 3) {
+        while (computer.size() < NUMBERS_SIZE) {
             int randomNumber = Randoms.pickNumberInRange(NUMBER_RANGE_MIN, NUMBER_RANGE_MAX);
             if (!computer.contains(randomNumber)) {
                 computer.add(randomNumber);
             }
         }
         answer = new BaseballNumbers(computer);
+        System.out.println("정답=>" + answer.toString());
     }
     public GameResult compareNumbers(BaseballNumbers playerNumbers) {
-        return answer.compare(answer);
+        return answer.compare(playerNumbers);
     }
 }
