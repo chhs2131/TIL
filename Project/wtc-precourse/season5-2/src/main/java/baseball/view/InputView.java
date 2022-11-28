@@ -9,8 +9,11 @@ import java.util.List;
 
 public class InputView {
     private static final String ALL_NUMBERS = "^[0-9]+$";
+
     public BaseballNumbers readBaseballNumbers() {
         String input = Console.readLine();
+        List<Integer> numbers = stringToIntegerList(input);
+        return new BaseballNumbers(numbers);
     }
 
     private List<Integer> stringToIntegerList(String input) {
@@ -27,6 +30,7 @@ public class InputView {
             throw new IllegalArgumentException("[ERROR] 숫자가 아닌 값이 입력되었습니다.");
         }
     }
+
     public GameCommand readGameCommand() {
         return GameCommand.RESTART;
     }
