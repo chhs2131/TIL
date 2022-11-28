@@ -32,6 +32,8 @@ public class InputView {
     }
 
     public GameCommand readGameCommand() {
-        return GameCommand.RESTART;
+        String input = Console.readLine();
+        validateStringNumber(input);
+        return GameCommand.make(Integer.parseInt(input));
     }
 }
