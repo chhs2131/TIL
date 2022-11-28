@@ -4,6 +4,7 @@ import baseball.domain.BaseballNumbers;
 import baseball.domain.GameCommand;
 import camp.nextstep.edu.missionutils.Console;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class InputView {
@@ -13,7 +14,12 @@ public class InputView {
     }
 
     private List<Integer> stringToIntegerList(String input) {
-
+        validateStringNumber(input);
+        List<Integer> result = new ArrayList<>();
+        for (String s : input.split("")) {
+            result.add(Integer.parseInt(s));
+        }
+        return result;
     }
 
     private void validateStringNumber(String number) {
