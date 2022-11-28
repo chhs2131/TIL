@@ -38,16 +38,24 @@ public class BaseballNumbers {
         }
     }
 
-    public boolean compare() {
-        return false;
-    }
-    public int strikeCount() {
-        return 0;
-    }
-    public int ballCount() {
-        return 0;
+    public GameResult compare(BaseballNumbers other) {
+        GameResult gameResult = new GameResult();
+        List<Integer> otherNumbers = other.getNumbers();
+
+        for (int i = 0; i < NUMBERS_SIZE; i++) {
+            if (numbers.get(i) == otherNumbers.get(i)) {
+                gameResult.addStrike();
+            }
+            else if (numbers.contains(otherNumbers.get(i))) {
+                gameResult.addBall();
+            }
+        }
+        return gameResult;
     }
 
+    public List<Integer> getNumbers() {
+        return numbers;
+    }
     @Override
     public String toString() {
         String result = "";
