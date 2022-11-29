@@ -4,8 +4,11 @@ import baseball.domain.BaseballNumbers;
 import baseball.domain.GameCommand;
 import camp.nextstep.edu.missionutils.Console;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class InputView {
     private static final String ALL_NUMBERS = "^[0-9]+$";
@@ -18,11 +21,10 @@ public class InputView {
 
     private List<Integer> stringToIntegerList(String input) {
         validateStringNumber(input);
-        List<Integer> result = new ArrayList<>();
-        for (String s : input.split("")) {
-            result.add(Integer.parseInt(s));
-        }
-        return result;
+
+        return Arrays.stream(input.split(""))
+                .map(Integer::parseInt)
+                .collect(Collectors.toList());
     }
 
     private void validateStringNumber(String number) {
