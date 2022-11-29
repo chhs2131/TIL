@@ -2,6 +2,8 @@ package racingcar.domain;
 
 public class Car {
     private static final int MAXIMUM_NAME_LENGTH = 5;
+    private static final int MOVE_RANGE_MIN = 0;
+    private static final int MOVE_RANGE_MAX = 9;
     private final String name;
     private int position = 0;
 
@@ -16,13 +18,21 @@ public class Car {
         }
     }
 
-    public void move() {
+    public void move(int number) {
+        validateMoveRange(number);
     }
 
     private void isGood() {
     }
 
-    private void validateMoveRange() {
+    private void goStraight() {
+        position++;
+    }
+
+    private static void validateMoveRange(int position) {
+        if (position < MOVE_RANGE_MIN || MOVE_RANGE_MAX < position) {
+            throw new IllegalArgumentException("잘못된 이동 값이 전달되었습니다. (" + position + ")");
+        }
     }
 
     @Override
