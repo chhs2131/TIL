@@ -17,4 +17,9 @@ public class GameController {
         OutputView.printInputCarNameGuide();
         return InputView.readCarsName();
     }
+
+    public int inputGoalLine() {
+        OutputView.printInputDestinationGuide();
+        return InputView.readDestination();
+    }
 }
