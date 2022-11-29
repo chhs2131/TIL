@@ -19,10 +19,10 @@
   -[x] (e) 전달받은 값의 범위가 0~9 밖인 경우 예외 발생 - validateMoveRange
 
 ## 게임 진행자 - GameController
--[ ] 참가자 명단을 받는다. - registerCars
--[ ] 목적지까지의 거리를 받는다. - inputGoalLin
--[ ] 레이싱을 진행한다. - racinge
--[ ] 우승자를 발표한다. - notificationWinner
+-[x] 참가자 명단을 받는다. - registerCars
+-[x] 목적지까지의 거리를 받는다. - inputGoalLin
+-[x] 레이싱을 진행한다. - racing
+-[x] 우승자를 발표한다. - notificationWinner
 
 ## 게임 기능 - Game
 -[x] 각 자동차가 전진한다. - moveCars
@@ -30,8 +30,8 @@
 -[x] 우승자가 나왔는지 확인한다. - checkWinning
 
 ## 출력 - OutputView
--[ ] 자동차 이름 입력을 안내한다. - printInputCarNameGuide
--[ ] 시도할 횟수 입력을 안내한다. - printInputDestinationGuide
--[ ] 레이싱 실행 결과를 출력한다. - printRacingResult
--[ ] 우승자 정보를 출력한다. - printWinner
--[ ] 예외를 출력한다. - printException
+-[x] 자동차 이름 입력을 안내한다. - printInputCarNameGuide
+-[x] 시도할 횟수 입력을 안내한다. - printInputDestinationGuide
+-[x] 레이싱 실행 결과를 출력한다. - printRacingResult
+-[x] 우승자 정보를 출력한다. - printWinner
+-[x] 예외를 출력한다. - printException
