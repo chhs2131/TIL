@@ -11,6 +11,7 @@ public class GameController {
     private Game game;
 
     public GameController() {
+        game = new Game(registerCars(), inputGoalLine());
     }
 
     public List<Car> registerCars() {
