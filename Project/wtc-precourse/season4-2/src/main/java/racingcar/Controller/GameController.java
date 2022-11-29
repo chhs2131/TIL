@@ -25,7 +25,14 @@ public class GameController {
     }
 
     public void racing() {
-
+        while(true) {
+            game.moveCars();
+            List<String> winners = game.checkWinning();
+            if (winners != null) {
+                notificationWinner(winners);
+                break;
+            }
+        }
     }
 
     private static void notificationWinner(final List<String> winners) {

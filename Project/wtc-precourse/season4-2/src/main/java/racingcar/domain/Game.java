@@ -18,7 +18,7 @@ public class Game {
         this.goalLine = goalLine;
     }
 
-    private void moveCars() {
+    public void moveCars() {
         for (Car car : cars) {
             int power = makeRandomPower();
             car.move(power);
@@ -29,10 +29,10 @@ public class Game {
         return Randoms.pickNumberInRange(POWER_RANGE_MIN, POWER_RANGE_MAX);
     }
 
-    private List<String> checkWinning() {
+    public List<String> checkWinning() {
         return cars.stream()
                 .filter(car -> car.getPosition() >= goalLine)
-                .map(car -> car.getName())
+                .map(Car::getName)
                 .collect(Collectors.toList());
     }
 
