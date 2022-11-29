@@ -52,6 +52,10 @@ public class Car {
         return position;
     }
 
+    public String getName() {
+        return name;
+    }
+
     @Override
     public String toString() {
         return "이름:" + name + " 현위치:" + position;
