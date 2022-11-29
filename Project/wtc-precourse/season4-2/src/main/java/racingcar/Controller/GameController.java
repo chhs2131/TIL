@@ -26,9 +26,11 @@ public class GameController {
 
     public void racing() {
         while(true) {
-            game.moveCars();
-            List<String> winners = game.checkWinning();
-            if (winners != null) {
+            List<Car> cars = game.moveCars();  // 경주를 진행하고 그 결과를 출력한다.
+            OutputView.printRacingResult(cars);
+
+            List<String> winners = game.checkWinning(cars);  // 승리자가 있는지 확인한다.
+            if (!winners.isEmpty()) {
                 notificationWinner(winners);
                 break;
             }

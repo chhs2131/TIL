@@ -1,8 +1,6 @@
 package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import racingcar.view.InputView;
-import racingcar.view.OutputView;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -18,24 +16,22 @@ public class Game {
         this.goalLine = goalLine;
     }
 
-    public void moveCars() {
+    public List<Car> moveCars() {
         for (Car car : cars) {
             int power = makeRandomPower();
             car.move(power);
         }
+        return cars;
     }
 
     private int makeRandomPower() {
         return Randoms.pickNumberInRange(POWER_RANGE_MIN, POWER_RANGE_MAX);
     }
 
-    public List<String> checkWinning() {
+    public List<String> checkWinning(List<Car> cars) {
         return cars.stream()
                 .filter(car -> car.getPosition() >= goalLine)
                 .map(Car::getName)
                 .collect(Collectors.toList());
-    }
-
-    public void notificationWinner() {
     }
 }
