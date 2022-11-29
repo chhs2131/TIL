@@ -1,21 +1,22 @@
 # 기능목록
 
 ## 입력 - InputView
--[ ] 자동차 이름(출전자 명단)을 입력한다. - readCarsName
-  -[ ] 하나의 문자열로 쉼표(,)로 각 이름을 구분한다. - splitCarsName
-  -[ ] 각각의 이름을 가진 자동차를 생성한다. - makeCars
--[ ] 몇 번 이동할건지(목적지까지의 거리)를 입력한다. - readDestination
-  -[ ] 숫자 형태로 변환한다.
-  -[ ] (e) 입력에 숫자 외에 형태가 있을 경우 예외 발생 - validateNumberOnly
+-[x] 자동차 이름(출전자 명단)을 입력한다. - readCarsName
+  -[x] 하나의 문자열로 쉼표(,)로 각 이름을 구분한다.
+  -[x] 각각의 이름을 가진 자동차를 생성한다.
+-[x] 몇 번 이동할건지(목적지까지의 거리)를 입력한다. - readDestination
+  -[x] 숫자 형태로 변환한다.
+  -[x] (e) 입력에 숫자 외에 형태가 있을 경우 예외 발생 - validateNumberOnly
 
 ## 자동차 - Car
--[ ] 출전자 이름을 기억한다.
-  -[ ] (e) 이름이 5글자를 초과할시 예외 발생 - validateNameSize
--[ ] 현재 위치를 기억한다.
-  -[ ] (e) 현재 위치가 0이하로 내려갈 경우 예외 발생 - validatePosition
--[ ] 이동을 진행한다. - move
-  -[ ] 전달받은 값이 4이상일 경우 한칸 전진한다. - isGood
-  -[ ] (e) 전달받은 값의 범위가 0~9 밖인 경우 예외 발생 - validateMoveRange
+-[x] 출전자 이름을 기억한다.
+  -[x] (e) 이름이 5글자를 초과할시 예외 발생 - validateNameLength
+-[x] 현재 위치를 기억한다.
+  -[x] (e) 현재 위치가 0이하로 내려갈 경우 예외 발생 - validatePosition
+-[x] 이동을 진행한다. - move
+  -[x] 전달받은 값이 4이상인지 확인한다 - isPowerEnough
+  -[x] 한칸 전진한다. - goStraight
+  -[x] (e) 전달받은 값의 범위가 0~9 밖인 경우 예외 발생 - validateMoveRange
 
 ## 레이싱 - Game
 -[ ] 참가자 명단을 받는다. - registerCars
