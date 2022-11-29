@@ -1,18 +1,18 @@
 package racingcar.view;
 
 public class OutputView {
-    public void printInputCarNameGuide() {
+    public static void printInputCarNameGuide() {
     }
 
-    public void printInputDestinationGuide() {
+    public static void printInputDestinationGuide() {
     }
 
-    public void printRacingResult() {
+    public static void printRacingResult() {
     }
 
-    public void printWinner() {
+    public static void printWinner() {
     }
 
-    public void printException() {
+    public static void printException() {
     }
 }
