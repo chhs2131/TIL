@@ -2,8 +2,10 @@ package racingcar.domain;
 
 public class Car {
     private static final int MAXIMUM_NAME_LENGTH = 5;
-    private static final int MOVE_RANGE_MIN = 0;
-    private static final int MOVE_RANGE_MAX = 9;
+    private static final int POWER_RANGE_MIN = 0;
+    private static final int POWER_RANGE_MAX = 9;
+    private static final int MINIMUM_POWER = 4;
+
     private final String name;
     private int position = 0;
 
@@ -18,20 +20,30 @@ public class Car {
         }
     }
 
-    public void move(int number) {
-        validateMoveRange(number);
+    public void move(int power) {
+        validateMoveRange(power);
+        if (isPowerEnough(power)) {
+            goStraight();
+        }
     }
 
-    private void isGood() {
+    private static void validateMoveRange(int power) {
+        if (power < POWER_RANGE_MIN || POWER_RANGE_MAX < power) {
+            throw new IllegalArgumentException("잘못된 이동 값이 전달되었습니다. (" + power + ")");
+        }
+    }
+
+    private static boolean isPowerEnough(int power) {
+        return MINIMUM_POWER <= power;
     }
 
     private void goStraight() {
         position++;
     }
 
-    private static void validateMoveRange(int position) {
-        if (position < MOVE_RANGE_MIN || MOVE_RANGE_MAX < position) {
-            throw new IllegalArgumentException("잘못된 이동 값이 전달되었습니다. (" + position + ")");
+    private static void validatePosition(int position) {
+        if (position < 0) {
+            throw new IllegalArgumentException("위치는 마이너스가 될 수 없습니다.");
         }
     }
 
