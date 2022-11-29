@@ -23,4 +23,12 @@ public class GameController {
         OutputView.printInputDestinationGuide();
         return InputView.readDestination();
     }
+
+    public void racing() {
+
+    }
+
+    private static void notificationWinner(final List<String> winners) {
+        OutputView.printWinner(winners);
+    }
 }
