@@ -38,6 +38,7 @@ public class Car {
     }
 
     private void goStraight() {
+        validatePosition(position);
         position++;
     }
 
@@ -45,6 +46,10 @@ public class Car {
         if (position < 0) {
             throw new IllegalArgumentException("위치는 마이너스가 될 수 없습니다.");
         }
+    }
+
+    public int getPosition() {
+        return position;
     }
 
     @Override
