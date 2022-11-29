@@ -4,6 +4,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import static java.util.stream.Collectors.toList;
+
 public class BaseballNumbers {
     private static final int NUMBERS_SIZE = 3;
     private static final int NUMBER_RANGE_MIN = 1;
@@ -25,15 +27,19 @@ public class BaseballNumbers {
         }
     }
     private void validateRange(List<Integer> numbers) {
-        for (int n : numbers) {
-            if (n < NUMBER_RANGE_MIN || NUMBER_RANGE_MAX < n) {
-                throw new IllegalArgumentException("[ERROR] out of range");
-            }
-        }
+       numbers.stream()
+                .filter(n -> n < NUMBER_RANGE_MIN || NUMBER_RANGE_MAX < n)
+                .findAny()
+                .ifPresent(n -> {
+                    throw new IllegalArgumentException("[ERROR] out of range");
+                });
     }
+
     private void validateDuplicate(List<Integer> numbers) {
-        Set<Integer> withoutDuplicate = new HashSet<>(numbers);
-        if (withoutDuplicate.size() != NUMBERS_SIZE) {
+        long count = numbers.stream()
+                .distinct()
+                .count();
+        if (count != NUMBERS_SIZE) {
             throw new IllegalArgumentException("[ERROR] duplicate number");
         }
     }
