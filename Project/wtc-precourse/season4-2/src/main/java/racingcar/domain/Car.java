@@ -16,4 +16,9 @@ public class Car {
 
     private void validateMoveRange() {
     }
+
+    @Override
+    public String toString() {
+        return "이름:" + name + " 현위치:" + position;
+    }
 }
