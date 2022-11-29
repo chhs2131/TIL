@@ -18,12 +18,6 @@ public class Game {
         this.goalLine = goalLine;
     }
 
-    public void racing() {
-        // 레이싱을 진행한다.
-        moveCars();
-        checkWinning();
-    }
-
     private void moveCars() {
         for (Car car : cars) {
             int power = makeRandomPower();
