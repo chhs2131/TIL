@@ -18,12 +18,16 @@
   -[x] 한칸 전진한다. - goStraight
   -[x] (e) 전달받은 값의 범위가 0~9 밖인 경우 예외 발생 - validateMoveRange
 
-## 레이싱 - Game
+## 게임 진행자 - GameController
 -[ ] 참가자 명단을 받는다. - registerCars
--[ ] 레이싱을 진행한다. - racing
-  -[ ] 각 자동차가 전진한다. - moveCars
-  -[ ] 우승자가 나왔는지 확인한다. - checkWinning
+-[ ] 목적지까지의 거리를 받는다. - inputGoalLin
+-[ ] 레이싱을 진행한다. - racinge
 -[ ] 우승자를 발표한다. - notificationWinner
+
+## 게임 기능 - Game
+-[x] 각 자동차가 전진한다. - moveCars
+  -[x] 랜덤한 숫자를 생성한다. - makeRandomPower
+-[x] 우승자가 나왔는지 확인한다. - checkWinning
 
 ## 출력 - OutputView
 -[ ] 자동차 이름 입력을 안내한다. - printInputCarNameGuide
