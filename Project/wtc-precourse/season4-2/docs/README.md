@@ -1,4 +1,6 @@
 # 기능목록
+- 클래스 다이어그램
+![img.png](img.png)
 
 ## 입력 - InputView
 - [x] 자동차 이름(출전자 명단)을 입력한다. - readCarsName
