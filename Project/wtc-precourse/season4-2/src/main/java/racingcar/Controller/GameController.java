@@ -9,50 +9,55 @@ import racingcar.view.OutputView;
 import java.util.List;
 
 public class GameController {
+    List<Car> cars;
+    int goalLine;
     private Game game;
     private GameProgress progress = GameProgress.START;
 
     public GameController() {
         progress = GameProgress.INPUT_CAR;
-        //game = new Game(registerCars(), inputGoalLine());
     }
 
     public void playGame() {
-        List<Car> cars = null;
-        int goalLine;
         boolean flag = false;
 
+        // 우승 깃발이 올라갈 때까지 경기를 진행한다.
         while (!flag) {
             try {
-                if (progress == GameProgress.INPUT_CAR) {
-                    cars = registerCars();
-                    progress = GameProgress.INPUT_GOAL_LINE;
-                }
-                if (progress == GameProgress.INPUT_GOAL_LINE) {
-                    goalLine = inputGoalLine();
-                    game = new Game(cars, goalLine);
-                    progress = GameProgress.PLAYING;
-                }
-                if (progress == GameProgress.PLAYING) {
-                    flag = racing();
-                }
+                flag = doThisTurn();
             } catch (IllegalArgumentException e) {
                 OutputView.printException(e.toString());
             }
         }
     }
 
-    public List<Car> registerCars() {
+    private boolean doThisTurn() {  // 현재 상태를 확인해서 해당하는 행동을 진행한다.
+        if (progress == GameProgress.INPUT_CAR) {  // 참가 자동차 설정
+            cars = registerCars();
+            progress = GameProgress.INPUT_GOAL_LINE;
+        }
+        if (progress == GameProgress.INPUT_GOAL_LINE) {  // 골인하려면 몇 칸 가야되는지 설정
+            goalLine = inputGoalLine();
+            game = new Game(cars, goalLine);
+            progress = GameProgress.PLAYING;
+        }
+        if (progress == GameProgress.PLAYING) {  // 레이싱 진행
+            return racing();
+        }
+        return false;
+    }
+
+    private List<Car> registerCars() {
         OutputView.printInputCarNameGuide();
         return InputView.readCarsName();
     }
 
-    public int inputGoalLine() {
+    private int inputGoalLine() {
         OutputView.printInputDestinationGuide();
         return InputView.readDestination();
     }
 
-    public boolean racing() {
+    private boolean racing() {
         List<Car> cars = game.moveCars();  // 경주를 진행하고 그 결과를 출력한다.
         OutputView.printRacingResult(cars);
 
