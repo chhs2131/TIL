@@ -18,10 +18,13 @@ public class Game {
 
     public List<Car> moveCars() {
         for (Car car : cars) {
-            int power = makeRandomPower();
-            car.move(power);
+            moveCar(car, makeRandomPower());
         }
         return cars;
+    }
+
+    public void moveCar(Car car, int power) {
+        car.move(power);
     }
 
     private int makeRandomPower() {

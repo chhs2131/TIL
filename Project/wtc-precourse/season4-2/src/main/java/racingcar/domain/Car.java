@@ -44,7 +44,7 @@ public class Car {
 
     private static void validatePosition(int position) {
         if (position < 0) {
-            throw new IllegalArgumentException("위치는 마이너스가 될 수 없습니다.");
+            throw new IllegalArgumentException("위치는 마이너스가 될 수 없습니다. (현재위치:" + position + ")");
         }
     }
 
