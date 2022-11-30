@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class InputView {
-    private static final String ONLY_NUMBER_PATTERN = "^[0-9]$";
+    private static final String ONLY_NUMBER_PATTERN = "^[0-9]+$";
 
     public static List<Car> readCarsName() {
         String input = Console.readLine();
