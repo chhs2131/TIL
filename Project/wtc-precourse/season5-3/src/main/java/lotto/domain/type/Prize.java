@@ -1,5 +1,8 @@
 package lotto.domain.type;
 
+import java.text.DecimalFormat;
+import java.util.Arrays;
+
 public enum Prize {
     FIRST(6, false, 2000000000),
     SECOND(5, true, 30000000),
@@ -15,5 +18,41 @@ public enum Prize {
         this.sameNumber = sameNumber;
         this.bonus = bonus;
         this.money = money;
+    }
+
+    public static Prize from(int sameNumber, boolean bonus) {
+        return Arrays.stream(Prize.values())
+                .filter(prize -> prize.getSameNumber() == sameNumber)
+                .filter(prize -> prize.getBonus() == bonus)
+                .findAny()
+                .orElse(null);
+    }
+
+    private int getSameNumber() {
+        return sameNumber;
+    }
+
+    private boolean getBonus() {
+        return bonus;
+    }
+
+    public int getMoney() {
+        return money;
+    }
+
+    private static final DecimalFormat decimalFormat = new DecimalFormat("###,###");
+    public static String makeSentence(Prize prize) {
+        String sentence = prize.getSameNumber() + "개 일치";
+        sentence += makeBonusSentence(prize.getBonus());
+        sentence += " (" + decimalFormat.format(prize.getMoney()) + "원)";
+
+        return sentence;
+    }
+
+    private static String makeBonusSentence(boolean bonus) {
+        if (bonus) {
+            return ", 보너스 볼 일치";
+        }
+        return "";
     }
 }

@@ -3,6 +3,7 @@ package lotto.controller;
 import java.util.List;
 import lotto.domain.LottoGame;
 import lotto.domain.type.Lotto;
+import lotto.domain.type.LottoResult;
 import lotto.view.InputView;
 import lotto.view.OutputView;
 
@@ -12,11 +13,10 @@ public class LottoGameController {
     public void system() {
         try {
             buyLotto();
-            setWinnerNumbers();
-            checkLottoResult();
+            LottoResult lottoResult = setWinnerNumbers();
+            checkLottoResult(lottoResult);
         } catch (IllegalArgumentException e) {
             OutputView.printError(e.toString());
-            throw e;  // 에러와 함께 프로그램이 종료되야 함
         }
     }
 
@@ -27,11 +27,16 @@ public class LottoGameController {
         OutputView.printMyLotto(lottos);
     }
 
-    private void setWinnerNumbers() {
+    private LottoResult setWinnerNumbers() {
+        OutputView.printInputWinnerNumbersGuide();
+        Lotto winnerNumbers = InputView.readWinnerNumbers();
+        OutputView.printInputBonusNumberGuide();
+        int bonusNumber = InputView.readBounusNumber();
 
+        return lottoGame.darw(winnerNumbers, bonusNumber);
     }
 
-    private void checkLottoResult() {
-
+    private void checkLottoResult(LottoResult lottoResult) {
+        OutputView.printLottoResult(lottoResult);
     }
 }
