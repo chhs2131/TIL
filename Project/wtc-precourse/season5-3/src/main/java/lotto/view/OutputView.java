@@ -21,4 +21,8 @@ public class OutputView {
         System.out.println("당첨 통계");
         System.out.println("---");
     }
+
+    public static void printError(String e) {
+        System.out.println("[ERROR] " + e);
+    }
 }
