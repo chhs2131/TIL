@@ -33,7 +33,7 @@ public class LottoGameController {
         OutputView.printInputBonusNumberGuide();
         int bonusNumber = InputView.readBounusNumber();
 
-        return lottoGame.darw(winnerNumbers, bonusNumber);
+        return lottoGame.draw(winnerNumbers, bonusNumber);
     }
 
     private void checkLottoResult(LottoResult lottoResult) {

@@ -23,9 +23,13 @@ public enum Prize {
     public static Prize from(int sameNumber, boolean bonus) {
         return Arrays.stream(Prize.values())
                 .filter(prize -> prize.getSameNumber() == sameNumber)
-                .filter(prize -> prize.getBonus() == bonus)
+                .filter(prize -> !prize.isSecondPrize() || prize.getBonus() == bonus)
                 .findAny()
                 .orElse(null);
+    }
+
+    private boolean isSecondPrize() {
+        return this == SECOND;
     }
 
     private int getSameNumber() {

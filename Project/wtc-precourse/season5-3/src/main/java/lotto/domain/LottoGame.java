@@ -25,7 +25,7 @@ public class LottoGame {
     }
 
     private void validateMoney(int money) {
-        if (money == 0) {
+        if (money <= 0) {
             throw new IllegalArgumentException("0원으로는 로또를 살 수 없습니다.");
         }
         if (money % LOTTO_PRICE != 0) {
@@ -33,7 +33,7 @@ public class LottoGame {
         }
     }
 
-    public LottoResult darw(Lotto winnerLotto, int bounusNumber) {
+    public LottoResult draw(Lotto winnerLotto, int bounusNumber) {
         for (Lotto lotto : lottos) {
             Prize prize = checkResult(lotto, winnerLotto, bounusNumber);
             lottoResult.addPrize(prize);
