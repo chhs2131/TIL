@@ -12,6 +12,10 @@ class CsvFile:
         return pd.read_csv(file_path)
 
     def describe(self):
+        print("\n===[파일 내용 간단 확인 (5개)]===")
+        print(self.__csv_file.head())
+        print("\n===[항목별 요약]===")
+        print(self.__csv_file.describe())
         print("\n===[항목별 개수 출력]===")
         print(self.__csv_file.count())
         print("\n===[항목 형태 출력]===")

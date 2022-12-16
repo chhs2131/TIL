@@ -15,7 +15,8 @@ class Heatmap:
     def show(self):
         self.__validate_data_is_none()
 
-        sns.set(rc={'figure.figsize': (12, 10)})
+        # sns.set(rc={'figure.figsize': (12, 10)})
+        print(self.__data.corr())
         correlation_matrix = self.__data.corr().round(2)  # 상관관계를 구한다.
         sns.heatmap(data=correlation_matrix, annot=True)
         plt.show()
@@ -26,7 +27,7 @@ class Heatmap:
 
 
 if __name__ == '__main__':
-    data = pd.read_csv('./test.csv')
+    data = pd.read_csv('./data.csv')
     data.dropna(inplace=True)
     heatmap = Heatmap(data)
     heatmap.show()

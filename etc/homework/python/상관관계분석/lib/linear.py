@@ -25,24 +25,37 @@ class Linear:
         x_train, x_test, y_train, y_test = train_test_split(self.__x, self.__y, test_size=test_size)
         return x_train, x_test, y_train, y_test
 
-    def fit(self):
-        # 데이터를 학습용/검증용으로 나눔
-        x_train, x_test, y_train, y_test = self.__split_data(test_size=0.2)
+    def fit(self, repeat_n=1):
+        for i in range(repeat_n):
+            # 데이터를 학습용/검증용으로 나눔
+            x_train, x_test, y_train, y_test = self.__split_data(test_size=0.2)
+            print("\n===[ 학습 개요 ]===")
+            print("테스트(train) 데이터 갯수: ", len(y_train))
+            print("검증(test) 데이터 갯수: ", len(y_test))
 
-        # 학습 진행
-        lin_model = LinearRegression()
-        lin_model.fit(x_train, y_train)
-        y_test_predict = lin_model.predict(x_test)
+            # 학습 진행
+            lin_model = LinearRegression()
+            lin_model.fit(x_train, y_train)
+            y_test_predict = lin_model.predict(x_test)
 
-        # 모델 오차 확인
-        rmse = np.sqrt(mean_squared_error(y_test, y_test_predict))
-        print("rmse(평균제곱근오차)", rmse)
+            # 모델 오차 확인
+            rmse = np.sqrt(mean_squared_error(y_test, y_test_predict))
+            print("rmse(평균제곱근오차) #" + str(i), rmse)
 
-        # 시각화
-        # plt.scatter(y_test, y_test_predict)  # 실제 결과와 예측값 관의 관계
-        plt.scatter(y_test, y_test_predict)  # 실제 결과와 예측값 관의 관계
-        plt.plot(y_test, y_test, color="red")
-        plt.show()
+            # 시각화
+            graph_title = 'graph #' + str(i)
+            plt.title(graph_title)
+            # plt.scatter(y_test, y_test_predict)  # 실제 결과와 예측값 관의 관계
+            plt.scatter(np.array(x_test), np.array(y_test))  # 실제 결과와 예측값 관의 관계
+            # plt.plot(y_test, y_test, color="red")
+            plt.plot(x_test, lin_model.predict(x_test), color='green')
+            plt.savefig(graph_title + '.png',
+                        facecolor='#eeeeee',
+                        edgecolor='black',
+                        format='png', dpi=100,
+                        bbox_inches='tight')
+            plt.show()
+            plt.close()
 
 
 if __name__ == '__main__':
