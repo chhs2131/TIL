@@ -6,7 +6,6 @@ NOT_VISIT = 0
 SEA = 1
 VISITED = 1
 
-
 n, m = map(int, input().split())
 
 d = [[0] * m for _ in range(n)]
@@ -17,8 +16,6 @@ d[x][y] = 1  # 현재 좌표 방문 처리
 array = []
 for i in range(n):
     array.append(list(map(int, input().split())))
-
-
 
 
 def turn_left():
