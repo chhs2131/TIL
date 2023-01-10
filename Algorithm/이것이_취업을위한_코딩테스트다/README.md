@@ -50,4 +50,35 @@
     - 1,000,000 = 4MB
     - 10,000,000 = 40MB
 
+### 스택 큐 예시
+```python
+# stack
+stack = []
+stack.append(5)
+stack.append(1)
+stack.pop()
+print(stack)
+
+# queue
+from collections import deque  # insert, delete속도가 list에 비해 효율적
+queue = deque()
+
+queue.append(5)
+queue.append(2)
+queue.append(1)
+queue.popleft()
+queue.reverse()
+print(queue)
+```
+
+### 재귀함수 예시
+```python
+# 재귀함수 구성 예
+def factorial_recursive(n):
+    # 종료조건
+    if n<= 1:
+        return 1
+    # 재귀
+    return n * factorial_recursive(n - 1)
+```
 
