@@ -39,7 +39,7 @@ String? nullString = null;
 nullString?.isEmpty; // nullString이 null이 아니면 isEmtpy method를 호출 
 ```
 
-### 앞에붙는거
+### 수정자
 
 ```dart
 // final (변경불가능한 값. js의 const)
