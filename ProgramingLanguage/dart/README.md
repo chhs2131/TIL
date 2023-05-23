@@ -296,9 +296,9 @@ void main() {
 - 사용하였을 때
 ```dart
 void main() {
-var person = Person("John", 30)
-  ..introduce()
-  ..age = 31
-  ..introduce();
+  var person = Person("John", 30)
+    ..introduce()
+    ..age = 31
+    ..introduce();
 }
 ```
