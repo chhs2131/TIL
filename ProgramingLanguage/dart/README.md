@@ -18,16 +18,16 @@ void main() {
 
 ### dynamic type var
 ```dart 
-  var autoType = "변수 생성과 동시에 값을 할당하면 컴파일타임에서 타입이 지정되어 타입변경불가";  //autoType = 1 불가능
-  
-  var name;
-  name = 123;
-  name = "이것은 Dynamic Var로 런타임에서 타입변경이 가능";
-  
-  dynamic but;
-  if(but is String) {
-    but = "dynamic으로 타입을 선언하는 것이 기능,가독성면에서 유리함";
-  }
+var autoType = "변수 생성과 동시에 값을 할당하면 컴파일타임에서 타입이 지정되어 타입변경불가";  //autoType = 1 불가능
+
+var name;
+name = 123;
+name = "이것은 Dynamic Var로 런타임에서 타입변경이 가능";
+
+dynamic but;
+if(but is String) {
+  but = "dynamic으로 타입을 선언하는 것이 기능,가독성면에서 유리함";
+}
 ```
 
 ### nullable var
@@ -35,32 +35,32 @@ void main() {
 - Type? 처럼 타입뒤에 `?` 를 붙여 nullable을 명시해줄 수 있음
 - 또한 변수명? 처럼 변수명 뒤에 `?`를 붙여 null이 아닌경우에만 동작을 이어나가도록 할 수 있음
 ```dart
-  String? nullString = null;
-  nullString?.isEmpty; // nullString이 null이 아니면 isEmtpy method를 호출 
+String? nullString = null;
+nullString?.isEmpty; // nullString이 null이 아니면 isEmtpy method를 호출 
 ```
 
 ### 앞에붙는거
 
 ```dart
-  // final (변경불가능한 값. js의 const)
-  final pie = 3.1415;
-  
-  // late (초기 데이터 없이 변수 선언가능, 값대입전에 해당 변수를 호출하면 경고가 발생함) ??????? var도 되지않나
-  late int b;  // late뒤에는 Type을 입력해줘야한다.
-  b = 2;
-  
-  // const (상수. final처럼 수정 불가 + 컴파일타임.앱스토어에 올라가기전에 알고있는 값. java static final?) 
-  const String API_KEY = "123456";
+// final (변경불가능한 값. js의 const)
+final pie = 3.1415;
+
+// late (초기 데이터 없이 변수 선언가능, 값대입전에 해당 변수를 호출하면 경고가 발생함) ??????? var도 되지않나
+late int b;  // late뒤에는 Type을 입력해줘야한다.
+b = 2;
+
+// const (상수. final처럼 수정 불가 + 컴파일타임.앱스토어에 올라가기전에 알고있는 값. java static final?) 
+const String API_KEY = "123456";
 ```
 
 ### qq 연산자
 - 값이 null인 경우에만 지정된 행동을 하도록 명시
 
 ```dart
-  String? qq;
-  qq ??= "qqq";
-  qq ??= "abc";  //컴파일러? IDE에서 에러 발생 (can't be null)
-  print(qq);  // qqq 가 출력됨
+String? qq;
+qq ??= "qqq";
+qq ??= "abc";  //컴파일러? IDE에서 에러 발생 (can't be null)
+print(qq);  // qqq 가 출력됨
 ```
 
 ### String Interpolation 
@@ -68,10 +68,10 @@ void main() {
 - 문자열끼리는 + 로도 연산이 가능함 (e.g. "대한민국" + "화이팅!")
 - 달러사인과 대괄호를 조합하여 
 ```dart  
-  String address = "대한민국";
-  int count = 0;
-  String greeting = "$address에 ${count + 1}번째 방문을 환영합니다!";
-  print(greeting);  // 대한민국에 1번째 방문을 환영합니다!
+String address = "대한민국";
+int count = 0;
+String greeting = "$address에 ${count + 1}번째 방문을 환영합니다!";
+print(greeting);  // 대한민국에 1번째 방문을 환영합니다!
 ```
  
 
@@ -84,37 +84,37 @@ void main() {
 
 
 ```dart
-  // Lists
-  List<int> nums = [1,2,3,4,5,6, if(true) 7, if(false) 8,];  // if를 통해 판단하는 것을 controlFlow operators라고 함
-  nums.add(9);
-  nums.first;
-  nums.contains(4);
-  
-  List<int> favoriteNums = [
-    0,
-    10,
-    100,
-    for (int number in nums) number + 1000,
-  ];
-  print(favoriteNums);  // [0, 10, 100, 1001, 1002, 1003, 1004, 1005, 1006, 1007, 1009]
-  print(nums);  // [1, 2, 3, 4, 5, 6, 7, 9]
- 
+// Lists
+List<int> nums = [1,2,3,4,5,6, if(true) 7, if(false) 8,];  // if를 통해 판단하는 것을 controlFlow operators라고 함
+nums.add(9);
+nums.first;
+nums.contains(4);
 
-  // maps (dict.)
-  Map<String, Object> store = {
-    "apple": 1000,
-    "banana": 2000,
-    "opend": false
-  };
-  store.entries;
-  store.containsKey;
-  store.putIfAbsent;
-  
+List<int> favoriteNums = [
+  0,
+  10,
+  100,
+  for (int number in nums) number + 1000,
+];
+print(favoriteNums);  // [0, 10, 100, 1001, 1002, 1003, 1004, 1005, 1006, 1007, 1009]
+print(nums);  // [1, 2, 3, 4, 5, 6, 7, 9]
 
-  // sets (중복 원소 x)
-  Set<int> lotto = {1, 2, 3, 4, 1, 1};
-  lotto.add(3);
-  print(lotto);  // {1, 2, 3, 4}
+
+// maps (dict.)
+Map<String, Object> store = {
+  "apple": 1000,
+  "banana": 2000,
+  "opend": false
+};
+store.entries;
+store.containsKey;
+store.putIfAbsent;
+
+
+// sets (중복 원소 x)
+Set<int> lotto = {1, 2, 3, 4, 1, 1};
+lotto.add(3);
+print(lotto);  // {1, 2, 3, 4}
 ``` 
   
 
@@ -149,14 +149,14 @@ void optionalHello(String name, [String? country = '-']) {
 
 - 함수 실과 결과
 ```dart
-  // Function
-  setPlayer(
-    name: "먼그옛날",
-    age: 11,
-  );  // 먼그옛날/-/11
-  
-  optionalHello("먼그옛날");
-  optionalHello("먼그옛날", "인천");
+// Function
+setPlayer(
+  name: "먼그옛날",
+  age: 11,
+);  // 먼그옛날/-/11
+
+optionalHello("먼그옛날");
+optionalHello("먼그옛날", "인천");
 ```
 
 ## Class
@@ -193,16 +193,15 @@ class Player {  // 멤버변수는 반드시 type 명시
 
 - 인스턴스 생성 및 호출
 ```dart
-  // Class
-  // Player player = Player("먼그옛날", 11);
-  // print(player.getName());
+// Class
+// Player player = Player("먼그옛날", 11);
+// print(player.getName());
 
-  Player player = Player(age: 70, name: "john");
-  print(player.getName());
+Player player = Player(age: 70, name: "john");
+print(player.getName());
 
-  Player player2 = Player.nameConstructor(name: "먼그옜날", age:99);
-  print(player2.getName());
-  
+Player player2 = Player.nameConstructor(name: "먼그옜날", age:99);
+print(player2.getName());
 ```
 
 ### abstract
@@ -230,10 +229,10 @@ class Apple extends Fruit {
 
 - 실행결과
 ```dart
-  Fruit apple = Apple();
-  Fruit banana = Banana();
-  apple.taste();  // good, bad
-  banana.taste();  // good
+Fruit apple = Apple();
+Fruit banana = Banana();
+apple.taste();  // good, bad
+banana.taste();  // good
 ```
 
 ### mixin
@@ -242,15 +241,15 @@ class Apple extends Fruit {
 
 ```dart
 mixin itmeA {
-    void hello() {
-        print("hello");
-    }
+  void hello() {
+    print("hello");
+  }
 }
 
 class itemB {
-    void bye() {
-        print("bye bye");
-    }
+  void bye() {
+    print("bye bye");
+  }
 }
 ```
 
@@ -260,9 +259,9 @@ class welcomeBot with itemA, itemB {
 }
 
 void main() {
-    var bot = welcomeBot();
-    bot.hello();  // hello
-    bot.bye();  // bye bye
+  var bot = welcomeBot();
+  bot.hello();  // hello
+  bot.bye();  // bye bye
 }
 ```
 
@@ -297,10 +296,9 @@ void main() {
 - 사용하였을 때
 ```dart
 void main() {
-  var person = Person("John", 30)
-    ..introduce()
-    ..age = 31
-    ..introduce();
+var person = Person("John", 30)
+  ..introduce()
+  ..age = 31
+  ..introduce();
 }
 ```
-
