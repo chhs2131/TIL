@@ -82,3 +82,10 @@ def factorial_recursive(n):
     return n * factorial_recursive(n - 1)
 ```
 
+### input() 대신 빠르게 입력받기
+```
+import sys
+
+input_data = sys.stdin.readline().rstrip()
+print(input_data)
+```
