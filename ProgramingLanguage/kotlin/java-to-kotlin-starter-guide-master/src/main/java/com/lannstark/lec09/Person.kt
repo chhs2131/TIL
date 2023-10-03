@@ -20,9 +20,9 @@ class Person(val name: String, var age: Int) {  // 생성자 지시어 construct
         println("name: " + name)  // 부생성자안에 다른 블럭이 있어도 된다..만 디폴트 생성자와 정적 팩토리 메소드를 추천
     }
 
-    fun isAdult(): Boolean {
-        return this.age >= 20
-    }
+//    fun isAdult(): Boolean {
+//        return this.age >= 20
+//    }
 
     val isAdult: Boolean
         get() = this.age >= 20
