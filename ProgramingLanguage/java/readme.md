@@ -83,15 +83,24 @@ l.remove(1);  // index
 l.get(1);  // index
 l.isEmpty();
 l.size();
+```
 
+### Arrays
+```java
 // 배열 <-> 리스트 상호변환
 l.toArray();
 Arrays.asList(arr);  // int[] abc = {1,2,3,4,5}로 부터 새로운 List 생성
 Stream.of(arr).toList();  // jdk 17 이후
 
+// int[] to List<Integer>
 List<Integer> l = Arrays.stream(num_list)
                         .boxed()
                         .collect(Collectors.toList());
+
+// List<Integer> to int[]
+int[] n =  l.stream()
+            .mapToInt(i -> i)
+            .toArray();
 ```
 
 Tip1. [Array<->List 변환](https://hianna.tistory.com/551)
