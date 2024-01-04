@@ -1,7 +1,14 @@
 # 자바 코테대비 치트시트
 
 고정 import
-import java.util.*;
+`import java.util.*;`
+
+
+
+
+<br/>
+
+
 
 ## 기본 문법
 ```java
@@ -15,6 +22,10 @@ switch(key) {
     return;
 }
 ```
+
+
+<br/>
+
 
 ## 자료구조
 ### Stack
@@ -82,6 +93,11 @@ m.remove("foo");
 m.clear();
 ```
 
+
+
+<br/>
+
+
 ## 문자열
 ### Input
 ```java
@@ -140,12 +156,22 @@ public String replaceAll(String regex, String replacement) {
 Tip1. [정규표현식 규칙](https://zhfvkq.tistory.com/5)
 Tip2. [정규표현식 규칙2](https://zzang9ha.tistory.com/322)
 
+
+
+<br/>
+
+
 ## 형변환
 ```java
 Integer.toString(12345);
 Integer.parseInt("12345");
 (new Integer(30)).intValue();  // 원시타입으로 반환
 ```
+
+
+
+<br/>
+
 
 ## Sort
 ```java
@@ -173,7 +199,17 @@ Tip1. [정렬에 대한 추가 설명](https://www.daleseo.com/java-comparable-c
 
 
 
+
+<br/>
+
+
+
 ---
+
+
+
+<br/>
+
 
 [참고자료]
 https://gist.github.com/Nullgom/7502a7cee30f4f052a5e5ec0d1eaa2c1
