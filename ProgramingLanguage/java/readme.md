@@ -137,6 +137,15 @@ for (int i = 0; i < es.length; i++) {
 
 Tip1. [compareTo() vs equals()](https://stackoverflow.com/questions/1551235/compareto-vs-equals)
 
+### Character: 대소문자
+```java
+char c = str.charAt(3);
+Character.isUpperCase(c);  // 대문자인지 확인
+Character.toUpperCase(c);  // 대문자로 변환
+Character.toLowerCase(c);  // 소문자로 변환
+Character.isWhiteSpace(c);  // 공백문자인지 확인
+```
+
 ### 정규식
 ```java
 String pattern = "^[0-9]*$"; // 숫자만 등장하는지
