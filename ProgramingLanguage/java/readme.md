@@ -83,7 +83,19 @@ l.remove(1);  // index
 l.get(1);  // index
 l.isEmpty();
 l.size();
+
+// 배열 <-> 리스트 상호변환
+l.toArray();
+Arrays.asList(arr);  // int[] abc = {1,2,3,4,5}로 부터 새로운 List 생성
+Stream.of(arr).toList();  // jdk 17 이후
+
+List<Integer> l = Arrays.stream(num_list)
+                        .boxed()
+                        .collect(Collectors.toList());
 ```
+
+Tip1. [Array<->List 변환](https://hianna.tistory.com/551)
+Tip2. [int배열을 list로 변환시 주의](https://hianna.tistory.com/552)
 
 ### Map
 ```java
