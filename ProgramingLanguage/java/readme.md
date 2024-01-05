@@ -86,6 +86,8 @@ l.size();
 ```
 
 ### Arrays
+import java.util.stream.*;
+
 ```java
 // 배열 <-> 리스트 상호변환
 l.toArray();
@@ -168,6 +170,9 @@ Character.isWhiteSpace(c);  // 공백문자인지 확인
 ```
 
 ### 정규식
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 ```java
 String pattern = "^[0-9]*$"; // 숫자만 등장하는지
 String str = "123321"; 
@@ -184,6 +189,7 @@ public String replaceAll(String regex, String replacement) {
 ```
 
 Tip1. [정규표현식 규칙](https://zhfvkq.tistory.com/5)
+
 Tip2. [정규표현식 규칙2](https://zzang9ha.tistory.com/322)
 
 
