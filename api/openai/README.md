@@ -91,8 +91,9 @@ https://platform.openai.com/docs/assistants/tools/uploading-files-for-retrieval
 ### How it works
 The model then decides when to retrieve content based on the user Messages. The Assistants API automatically chooses between two retrieval techniques:
 
-it either passes the file content in the prompt for short documents, or
-performs a vector search for longer documents
+- it either passes the file content in the prompt for short documents, or
+- performs a vector search for longer documents
+
 Retrieval currently optimizes for quality by adding all relevant content to the context of model calls. We plan to introduce other retrieval strategies to enable developers to choose a different tradeoff between retrieval quality and model usage cost.
 
 <br/>
@@ -153,9 +154,51 @@ Retrieval is priced at $0.20/GB per assistant per day. Attaching a single file I
 
 In addition, files attached to messages are charged on a per-assistant basis if the messages are part of a run where the retrieval tool is enabled. For example, running an assistant with retrieval enabled on a thread with 10 messages each with 1 unique file (10 total unique files) will incur a per-GB per-day charge on all 10 files (in addition to any files attached to the assistant itself).
 
--> 한 파일당 $0.2 부과 및 1GB 초과시마다 $0.2 추가 부과
+-> 검색 비용 1인 1일 $0.2/GB
+-> The maximum file size is 512 MB and no more than 2,000,000 tokens (computed automatically when you attach a file).
 
 <br/>
+
+### example_report.pdf에 대한 테스트
+code
+```python
+# 쓰레드 생성 및 메세지 전달
+thread = client.beta.threads.create()
+message = client.beta.threads.messages.create(
+    thread_id = thread.id,
+    role = "user",
+    content = "다음 문서를 확인하고, 증권사, 일반 청약자 배정물량, 최고 청약한도, 청약 증거금율을 알려주세요."
+)
+run = client.beta.threads.runs.create(
+    thread_id = thread.id,
+    assistant_id= assistant.id
+)
+
+# GPT 응답 대기 및 출력
+import time
+
+while True:
+# Retrieve the run status
+    run_status = client.beta.threads.runs.retrieve(thread_id=thread.id,run_id=run.id)
+    time.sleep(10)
+    if run_status.status == 'completed':
+        messages = client.beta.threads.messages.list(thread_id=thread.id)
+        break
+    else:
+        ### sleep again
+        time.sleep(2)
+
+for message in reversed(messages.data):
+  print(message.role + ":" + message.content[0].text.value)
+```
+
+output
+```python
+user:다음 문서를 확인하고, 증권사, 일반 청약자 배정물량, 최고 청약한도, 청약 증거금율을 알려주세요.
+assistant:문서에 따르면 일반 청약자의 배정물량은 총 공모주식 1,000,000주 중에서 250,000주 ~ 300,000주(공모주식의 25.0%~30.0%)입니다【15†source】. NH투자증권㈜의 일반청약자 최고 청약한도는 8,000주 ~ 10,000주입니다【19†source】. 그리고 청약 증거금율은 50%로 설정되어 있습니다【25†source】.
+
+문서 내에서 '증권사'와 관련된 구체적인 정보는 발견되지 않았기 때문에 증권사에 대한 정보는 제공드릴 수 없습니다. 필요하다면, 추가적인 검색을 통해 해당 정보를 찾을 수 있습니다.
+```
 
 ### Deleting files
 To remove a file from the assistant, you can detach the file from the assistant:
@@ -193,6 +236,22 @@ https://platform.openai.com/tokenizer
 openai에서 API요청시 토큰의 개념을 사용하는데, 그 제한 수가 넘어가면 에러가 발생합니다.(chatGPT3.5 4097, chatGPT4.0 8096)
 출처: https://pagichacha.tistory.com/154 [파기차차:티스토리]
 
+### 400 - gpt-4-1106-preview
+```python
+openai.BadRequestError: Error code: 400 - {'error': {'message': "The requested model 'gpt-4-1106-preview' does not exist.", 'type': 'invalid_request_error', 'param': 'model', 'code': 'model_not_found'}}
+```
+https://community.openai.com/t/400-the-requested-model-gpt-4-1106-preview-does-not-exist/478300/18
+
+playground에서 display되는 모델만 사용할 수 있으며, 해당 모델의 경우 $5 크레딧을 구매한 이후 사용가능해졌다는 이야기가 있다.
+
+![img.png](readme-file/img22.png)
+
+정말 현질하니깐 모델이 생김...
+
+![img_1.png](readme-file/img_122.png)
+
 ### 참고 자료
 
 https://platform.openai.com/docs/quickstart?context=python
+
+https://youssefh.substack.com/p/chat-with-your-pdf-using-openai-assistant
