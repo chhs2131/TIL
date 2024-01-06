@@ -79,6 +79,8 @@ public E poll() {
 List<Integer> l = new ArrayList<>();
 l.add(100);
 l.add(1, 100);
+l.addAll(다른 리스트);
+
 l.set(1, 100);  // 기존 1번 인덱스의 값을 100으로 덮어씀
 l.remove(1);  // index
 l.get(1);  // index
@@ -119,7 +121,13 @@ strList.toArray(new String[100]);
 Arrays.asList(strArr);
 ```
 
+int 배열 이진탐색
+```java
+Arrays.binarySearch(num_list, n)
+```
+
 Tip1. [Array<->List 변환](https://hianna.tistory.com/551)
+
 Tip2. [int배열을 list로 변환시 주의](https://hianna.tistory.com/552)
 
 
@@ -171,6 +179,14 @@ for (int i = 0; i < es.length; i++) {
 // 0->t
 // 1->mat
 // 2-> lets g
+```
+
+String 한글자씩 나누기
+```java
+String[] numArr= num_str.split("");
+for (String num : numArr){
+    answer+=Integer.parseInt(num);
+}
 ```
 
 Tip1. [compareTo() vs equals()](https://stackoverflow.com/questions/1551235/compareto-vs-equals)
@@ -254,6 +270,16 @@ Tip1. [정렬에 대한 추가 설명](https://www.daleseo.com/java-comparable-c
 <br/>
 
 
+## Stream
+
+IntStream
+```java
+IntStream.of(numList).anyMatch(num -> num == n) ? 1 : 0;
+Arrays.stream(num_list).filter(f -> f == n).count();
+```
+
+
+<br/>
 
 ---
 
