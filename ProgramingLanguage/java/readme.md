@@ -289,8 +289,12 @@ Arrays.stream(num_list).filter(f -> f == n).count();
 
 
 [참고자료]
+
 https://gist.github.com/Nullgom/7502a7cee30f4f052a5e5ec0d1eaa2c1
+
 https://anjaekwang.github.io/javaCheatingSheet/
+
+https://velog.io/@alstjdwo1601/Java-%EC%BD%94%EB%94%A9%ED%85%8C%EC%8A%A4%ED%8A%B8-%EA%B4%80%EB%A0%A8-%ED%8C%81
 
 
 
