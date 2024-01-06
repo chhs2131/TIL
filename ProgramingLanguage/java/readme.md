@@ -79,11 +79,19 @@ public E poll() {
 List<Integer> l = new ArrayList<>();
 l.add(100);
 l.add(1, 100);
+l.set(1, 100);  // 기존 1번 인덱스의 값을 100으로 덮어씀
 l.remove(1);  // index
 l.get(1);  // index
 l.isEmpty();
 l.size();
 ```
+
+```java
+l.subList(3, l.size());  // 3번째부터 끝까지 서브리스트로 만듬 (단, 내부 값은 기존 리스트를 참조함)
+new ArrayList<>(SubList);
+```
+
+Tip1. [리스트 일부를 잘라 사용하기](https://developer-talk.tistory.com/783)
 
 ### Arrays
 import java.util.stream.*;
@@ -105,8 +113,15 @@ int[] n =  l.stream()
             .toArray();
 ```
 
+```java
+// List<String> to String[]
+strList.toArray(new String[100]);
+Arrays.asList(strArr);
+```
+
 Tip1. [Array<->List 변환](https://hianna.tistory.com/551)
 Tip2. [int배열을 list로 변환시 주의](https://hianna.tistory.com/552)
+
 
 ### Map
 ```java
