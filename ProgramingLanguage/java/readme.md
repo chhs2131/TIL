@@ -281,6 +281,46 @@ Arrays.stream(num_list).filter(f -> f == n).count();
 
 <br/>
 
+# IO
+## 입력
+백준 기준 아래와 같은 형태로 입력받기
+```java
+import java.io.*;
+
+public class Main {
+    public static void main(String[] args) throws Exception {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String str = br.readLine();
+
+        System.out.println(str.length());
+    }
+}
+```
+
+split() 대신 StringTokenizer
+```java
+BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+StringTokenizer st = new StringTokenizer(br.readLine());
+int s = Integer.parseInt(st.nextToken());
+```
+
+<br/>
+
+## 출력
+https://www.acmicpc.net/blog/view/57
+
+| 순위 | 언어   | 출력 방법                                                | 평균 (초) |
+|------|--------|---------------------------------------------------------|-----------|
+| 7    | Java   | BufferedWriter, bf.write(i + "\n");                    | 0.9581    |
+| 10   | Java   | StringBuilder를 이용해 문자열 하나로 만든 다음, System.out.println(sb); | 1.1881    |
+| 11   | Java   | BufferedWriter, bf.write(Integer.toString(i)); bf.newLine(); | 1.2556    |
+| 18   | Java   | PrintWriter                                            | 1.954     |
+| 43   | Java   | System.out.println(i);                                  | 30.013    |
+
+
+
+<br/>
+
 ---
 
 
@@ -288,7 +328,7 @@ Arrays.stream(num_list).filter(f -> f == n).count();
 <br/>
 
 
-[참고자료]
+# [참고자료]
 
 https://gist.github.com/Nullgom/7502a7cee30f4f052a5e5ec0d1eaa2c1
 
@@ -296,5 +336,6 @@ https://anjaekwang.github.io/javaCheatingSheet/
 
 https://velog.io/@alstjdwo1601/Java-%EC%BD%94%EB%94%A9%ED%85%8C%EC%8A%A4%ED%8A%B8-%EA%B4%80%EB%A0%A8-%ED%8C%81
 
+https://nahwasa.com/entry/%EC%9E%90%EB%B0%94%EB%A1%9C-%EB%B0%B1%EC%A4%80-%ED%92%80-%EB%95%8C%EC%9D%98-%ED%8C%81-%EB%B0%8F-%EC%A3%BC%EC%9D%98%EC%A0%90-boj-java
 
 
