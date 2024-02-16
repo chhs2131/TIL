@@ -126,6 +126,11 @@ int 배열 이진탐색
 Arrays.binarySearch(num_list, n)
 ```
 
+배열 일부를 복사
+```java
+T[] sub = Arrays.copyOfRange(원본배열, i, j);
+```
+
 Tip1. [Array<->List 변환](https://hianna.tistory.com/551)
 
 Tip2. [int배열을 list로 변환시 주의](https://hianna.tistory.com/552)
