@@ -115,10 +115,19 @@ int[] n =  l.stream()
             .toArray();
 ```
 
+String
 ```java
 // List<String> to String[]
 strList.toArray(new String[100]);
 Arrays.asList(strArr);
+
+// String[] to String
+public String solution(String sss) {
+    String[] s = sss.split("");
+    Arrays.sort(s, (s2, s1) -> s1.charAt(0) - s2.charAt(0));
+        
+    return String.join("", s);
+}
 ```
 
 int 배열 이진탐색
